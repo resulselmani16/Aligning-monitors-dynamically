@@ -3,10 +3,6 @@ Aligning double monitors using Automator
 
 ![Resulselmani](https://miro.medium.com/v2/resize:fill:88:88/1*Kf7zXnZqy0NVpWQ4CdYtfg@2x.jpeg)
 
-
-
-
-
 [Resulselmani]
 6 min read
 
@@ -107,6 +103,7 @@ SECONDARY\_DISPLAY=${display\_ids\[1\]}
 primaryWidth=$(displayplacer list | grep "$PRIMARY\_DISPLAY" | sed -n 's/.\*res:\\(\[0-9\]\*\\)x\[0-9\]\*.\*/\\1/p')  
   
 displayplacer "id:$PRIMARY\_DISPLAY res:1440x900 hz:60 color\_depth:8 enabled:true scaling:on origin:(0,0) degree:0" "id:$SECONDARY\_DISPLAY res:1920x1080 origin:($primaryWidth,-180)"
+
 
 Keep in mind, when we set `origin:($primaryWidth, -180)` the purpose was to line up the monitors with the same bottom screen, that could be 0 or however you see fit for yourself
 
