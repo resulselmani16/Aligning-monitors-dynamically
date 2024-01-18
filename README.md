@@ -1,19 +1,11 @@
 Aligning double monitors using Automator
 ========================================
 
-[
-
 ![Resulselmani](https://miro.medium.com/v2/resize:fill:88:88/1*Kf7zXnZqy0NVpWQ4CdYtfg@2x.jpeg)
 
 
 
 
-
-
-
-
-
-](/@resulselmani2002?source=post_page-----621c7de581d3--------------------------------)
 
 [Resulselmani](/@resulselmani2002?source=post_page-----621c7de581d3--------------------------------)
 
@@ -23,25 +15,6 @@ Aligning double monitors using Automator
 
 Dec 31, 2023
 
-28
-
-2
-
-[
-
-Listen
-
-
-
-
-
-
-
-](/plans?dimension=post_audio_button&postId=621c7de581d3&source=upgrade_membership---post_audio_button----------------------------------)
-
-Share
-
-More
 
 ![](https://miro.medium.com/v2/resize:fit:1400/1*nPtpuwFEEfMe6ZYL2WSgfw.jpeg)
 
