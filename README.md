@@ -94,12 +94,13 @@ By ensuring the proper installation of `**displayplacer**` and having a foundati
 *   The secondary display is placed to the right of the primary, with its position dynamically calculated based on the primary display’s width
 
 `
-export PATH="/usr/local/bin:$PATH" \
-display\_ids=($(displayplacer list | grep "Persistent screen id:" | awk '{print $4}'))  \
-PRIMARY\_DISPLAY=${display\_ids\[0\]}  \
-SECONDARY\_DISPLAY=${display\_ids\[1\]} \ 
-primaryWidth=$(displayplacer list | grep "$PRIMARY\_DISPLAY" | sed -n 's/.\*res:\\(\[0-9\]\*\\)x\[0-9\]\*.\*/\\1/p')  \
-displayplacer "id:$PRIMARY\_DISPLAY res:1440x900 hz:60 color\_depth:8 enabled:true scaling:on origin:(0,0) degree:0" "id:$SECONDARY\_DISPLAY res:1920x1080 origin:($primaryWidth,-180)"
+export PATH="/usr/local/bin:$PATH"
+display_ids=($(displayplacer list | grep "Persistent screen id:" | awk '{print $4}'))
+PRIMARY_DISPLAY=${display_ids[0]}
+SECONDARY_DISPLAY=${display_ids[1]}
+primaryWidth=$(displayplacer list | grep "$PRIMARY_DISPLAY" | sed -n 's/.*res:\([0-9]*\)x[0-9]*.*/\1/p')
+primaryHeight=$(displayplacer list | grep "$PRIMARY_DISPLAY" | sed -n 's/.*res:[0-9]*x\([0-9]*\).*/\1/p')
+displayplacer "id:$PRIMARY_DISPLAY res:1440x900 hz:60 color_depth:8 enabled:true scaling:on origin:(0,0) degree:0" "id:$SECONDARY_DISPLAY res:1920x1080 origin:($primaryWidth,-180)"
 `
 
 Keep in mind, when we set `origin:($primaryWidth, -180)` the purpose was to line up the monitors with the same bottom screen, that could be 0 or however you see fit for yourself
@@ -111,12 +112,12 @@ Keep in mind, when we set `origin:($primaryWidth, -180)` the purpose was to line
 *   The secondary display is placed above or below the primary, with its position dynamically calculated based on the primary display’s height.
 
 `
-export PATH="/usr/local/bin:$PATH"  
-display\_ids=($(displayplacer list | grep "Persistent screen id:" | awk '{print $4}'))  
-PRIMARY\_DISPLAY=${display\_ids\[0\]}  
-SECONDARY\_DISPLAY=${display\_ids\[1\]}  
-primaryHeight=$(displayplacer list | grep "$PRIMARY\_DISPLAY" | sed -n 's/.\*res:\[0-9\]\*x\\(\[0-9\]\*\\).\*/\\1/p')  
-displayplacer "id:$PRIMARY\_DISPLAY res:1440x900 hz:60 color\_depth:8 enabled:true scaling:on origin:(0,0) degree:0" "id:$SECONDARY\_DISPLAY res:1920x1080 origin:(-280,-$primaryHeight)"
+export PATH="/usr/local/bin:$PATH"
+display_ids=($(displayplacer list | grep "Persistent screen id:" | awk '{print $4}'))
+PRIMARY_DISPLAY=${display_ids[0]}
+SECONDARY_DISPLAY=${display_ids[1]}
+primaryHeight=$(displayplacer list | grep "$PRIMARY_DISPLAY" | sed -n 's/.*res:[0-9]*x\([0-9]*\).*/\1/p')
+displayplacer "id:$PRIMARY_DISPLAY res:1440x900 hz:60 color_depth:8 enabled:true scaling:on origin:(0,0) degree:0" "id:$SECONDARY_DISPLAY res:1920x1080 origin:(-280,-$primaryHeight)"
 `
 
 The same thing here with the `origin:(-280, -$primaryHeight)`, I set it like that so it fits perfectly in the middle with my screen but that could change based on the monitor, type of Macbook screen or settings.
